@@ -1,8 +1,7 @@
 int arrayPairSum(int* nums, int numsSize)
 {
     int a;
-    int sums;
-    sums = 0;
+    int sums = 0;
     int i = 0;
     for (i=0; i<numsSize; i++)
     {
