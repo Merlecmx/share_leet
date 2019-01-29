@@ -9,6 +9,7 @@ int main()
     *returnSize=*AColSizes;
     for(int i=0; i<*returnSize; i++)
     {
+        (*columnSizes)[i]=ARowSize;
         arr[i]=malloc(sizeof(int)*(**columnSizes));
         for(int j=0; j<**columnSizes; j++)
         {
