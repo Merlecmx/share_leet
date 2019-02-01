@@ -1,6 +1,6 @@
 int majorityElement(int* nums, int numsSize)
 {
-        for (int i=0; i<numsSize; i++)
+    for (int i=0; i<numsSize; i++)
     {
         for (int j=i+1; j<numsSize; j++)
         {
@@ -13,5 +13,5 @@ int majorityElement(int* nums, int numsSize)
             }
         }
     }
-    return nums[(numsSize/2)];
+    return nums[numsSize/2];
 }
