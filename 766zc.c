@@ -6,15 +6,13 @@ bool isToeplitzMatrix(int** matrix, int matrixRowSize, int *matrixColSizes)
         {
             int a = i;
             int b = j;
-            while(i+1 < matrixRowSize && j+1 < (*matrixColSizes))
+            while(a+1 < matrixRowSize && b+1 < (*matrixColSizes))
             {
-                if(matrix[i][j] != matrix[++i][++j])
+                if(matrix[a][b] != matrix[++a][++b])
                 {
                     return false;
                 }
             }
-            i = a;
-            j = b;
         }
     }
     return true;
