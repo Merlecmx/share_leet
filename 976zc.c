@@ -14,13 +14,12 @@ int largestPerimeter(int* A, int ASize)
             }
         }
     }
-    int max = 0;
+
     for(int a=ASize-1; a>1; a--)
     {
         if(A[a] < (A[a-1] + A[a-2]))
         {
-            max = A[a] + A[a-1] + A[a-2];
-            return max;
+              return A[a] + A[a-1] + A[a-2];
         }
     }
     return 0;
