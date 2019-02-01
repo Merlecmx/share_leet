@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
 
-int main()
-{
     int** transpose(int** A, int ARowSize, int *AColSizes, int** columnSizes, int* returnSize) {
     int **arr=malloc(sizeof(int*)*(*AColSizes));
     *columnSizes=malloc(sizeof(int)*ARowSize);
@@ -17,5 +13,4 @@ int main()
         }
     }
     return arr;
-}
 }
