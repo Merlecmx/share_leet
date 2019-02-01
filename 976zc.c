@@ -14,7 +14,6 @@ int largestPerimeter(int* A, int ASize)
             }
         }
     }
-
     for(int a=ASize-1; a>1; a--)
     {
         if(A[a] < (A[a-1] + A[a-2]))
