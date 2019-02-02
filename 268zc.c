@@ -7,5 +7,5 @@ int missingNumber(int* nums, int numsSize)
         numsSize += i;
         numssum += nums[i];
     }
-    return sum - numssum;
+    return numsSize  - numssum;
 }
