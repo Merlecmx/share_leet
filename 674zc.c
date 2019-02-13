@@ -7,23 +7,20 @@ int findLengthOfLCIS(int* nums, int numsSize)
     {
         return 0;
     }
-    else
+    for(int i=1; i<numsSize; i++)
     {
-        for(int i=1; i<numsSize; i++)
-        {
-            if(nums[i] > nums[i-1])
-            {
-                count++;
-            }
-            else
-            {
-                if(count > temp)
-                {
-                    temp = count;
-                }
-                count = 1;
-            }
-        }
-        return count > temp ? count : temp;
-    }
+         if(nums[i] > nums[i-1])
+         {
+             count++;
+         }
+         else
+         {
+             if(count > temp)
+             {
+                 temp = count;
+             }
+             count = 1;
+         }
+     }
+     return count > temp ? count : temp;
 }
