@@ -1,5 +1,8 @@
 void deleteNode(struct ListNode* node)
 {
+    struct ListNode *temp = NULL;
     node -> val = node -> next -> val;
-    node -> next = node -> next -> next;
+    temp = node -> next;
+    node->next = temp->next;
+    free(temp);
 }
