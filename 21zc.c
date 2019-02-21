@@ -1,11 +1,11 @@
 struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2)
 {
-    struct ListNode *L,*pt,*p,*q;
+    struct ListNode *l,*pt,*p,*q;
     p = l1;
     q = l2;
-    L = (struct ListNode*)malloc(sizeof(struct ListNode));
-    pt = L;
-    L->next = NULL;
+    l = (struct ListNode*)malloc(sizeof(struct ListNode));
+    pt = l;
+    l->next = NULL;
     while(p && q)
     {
         if(p->val <= q->val)
@@ -21,5 +21,5 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2)
         }
     }
     pt->next = p ? p : q;
-    return L->next;
+    return l->next;
 }
