@@ -11,7 +11,7 @@ int  stack(char *arry,char* arry2)
 		else
 		{
             count -= 1;
-           if (count <= 0)
+            if (count <= 0)
 				count = 0;
 		}
 		arry++;
