@@ -29,11 +29,11 @@ bool backspaceCompare(char* S, char* T)
     {
         free(arry_s);
         free(arry_t);
-		return false;
+        return false;
     }
 	else
     {
-		return (memcmp(arry_s, arry_t, count_s) == 0);
+        return (memcmp(arry_s, arry_t, count_s) == 0);
         free(arry_s);
         free(arry_t);
 	}
