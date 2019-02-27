@@ -5,15 +5,16 @@ int  stack(char *arry,char* arry2)
 	{
 		if (*arry != '#')
 		{
-			*(arry2+count) = *arry;
+			arry2[count] = *arry;
 			count++;
 		}
-		else
-		{
+		else if(count > 0)
+        {
             count--;
-            if (count <= 0)
-				count = 0;
-		}
+        }else
+        {
+            count = 0;
+        }
 		arry++;
 	}
 	return count;
@@ -21,9 +22,9 @@ int  stack(char *arry,char* arry2)
 bool backspaceCompare(char* S, char* T)
 {
 	char *arry_s = (char *)malloc(201*sizeof(char));
-     char *arry_t = (char *)malloc(201*sizeof(char));
+    char *arry_t = (char *)malloc(201*sizeof(char));
 	int count_s = stack(S,arry_s);
-     int count_t = stack(T,arry_t);
+    int count_t = stack(T,arry_t);
 	if (count_s != count_t)
     {
         free(arry_s);
@@ -31,16 +32,9 @@ bool backspaceCompare(char* S, char* T)
 		return false;
     }
 	else
-	{
-		int i = 0;
-		while (i<count_s)
-		{
-			*(S + i) = *(arry_s + i);
-			*(T + i) = *(arry_t + i);
-			i++;
-		}
-		free(arry_s);
+    {
+		return (memcmp(arry_s, arry_t, count_s) == 0);
+        free(arry_s);
         free(arry_t);
-		return (memcmp(S, T, count_s) == 0);
 	}
 }
