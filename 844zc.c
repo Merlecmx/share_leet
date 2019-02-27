@@ -21,7 +21,7 @@ int  stack(char *arry,char* arry2)
 bool backspaceCompare(char* S, char* T)
 {
 	char *arry_s = (char *)malloc(201*sizeof(char));
-    char *arry_t = (char *)malloc(201 * sizeof(char));
+    char *arry_t = (char *)malloc(201*sizeof(char));
 	int count_s = stack(S,arry_s);
     int count_t = stack(T, arry_t);
 	if (count_s != count_t)
