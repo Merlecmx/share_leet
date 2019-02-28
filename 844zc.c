@@ -1,7 +1,7 @@
 int  stack(char *arry,char* arry2)
 {
 	int count = 0;
-	while (*arry !=' \0')
+	while (*arry != '\0')
 	{
 		if (*arry != '#')
 		{
