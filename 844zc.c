@@ -33,7 +33,7 @@ bool backspaceCompare(char* S, char* T)
     }
 	else
     {
-        return (memcmp(arry_s, arry_t, count_s) == 0);
+        return (strncmp(arry_s, arry_t, count_s) == 0);
         free(arry_s);
         free(arry_t);
 	}
