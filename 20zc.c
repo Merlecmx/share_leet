@@ -5,43 +5,45 @@ bool isValid(char* s) {
     if (s[0] == ']' || s[0] =='}' || s[0] == ')') return false;
     while(s[i] != '\0') {
         switch (s[i]) {
-            case '{' : {
-                ch[j] = '{';
-                break;
+        case '{' : {
+            ch[j] = '{';
+            break;
+        }
+        case '(' : {
+            ch[j] = '(';
+            break;
+        }
+        case '[' : {
+            ch[j] = '[';
+            break;
+        }
+        case ']' : {
+            if (j == 0) return false;
+            if (ch[j-1] == '[') {
+                j = j-2;
+            } else {
+                return false;
             }
-            case '(' : {
-                ch[j] = '(';
-                break;
+            break;
+        }
+        case '}' : {
+            if (j == 0) return false;
+            if (ch[j-1] == '{') {
+                j = j-2;
+            } else {
+                return false;
             }
-            case '[' : {
-                ch[j] = '[';
-                break;
+            break;
+        }
+        case ')' : {
+            if (j == 0) return false;
+            if (ch[j-1] == '(') {
+                j = j-2;
+            } else {
+                return false;
             }
-            case ']' : {
-                if (j == 0) return false;
-                if (ch[j-1] == '[')
-                    j = j-2;
-                else
-                    return false;
-                break;
-            }
-            case '}' : {
-                if (j == 0) return false;
-                if (ch[j-1] == '{')
-                    j = j-2;
-                else
-                    return false;
-                break;
-            }
-            case ')' : {
-                if (j == 0) return false;
-                if (ch[j-1] == '(') {
-                    j = j-2;
-                } else {
-                    return false;
-                }
-                break;
-            }
+            break;
+        }
         }
         i++;
         j++;

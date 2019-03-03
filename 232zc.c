@@ -45,6 +45,5 @@ bool myQueueEmpty(MyQueue* obj) {
 }
 
 void myQueueFree(MyQueue* obj) {
-    obj->top = -1;
     if(obj) free(obj);
 }

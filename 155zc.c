@@ -1,5 +1,4 @@
-typedef struct
-{
+typedef struct {
     int capacity;
     int topofstack;
     int *array;
@@ -9,27 +8,26 @@ typedef struct
 #define EMPTYTOS (-1)
 MinStack* minStackCreate(int maxSize) {
     MinStack *S = malloc(sizeof(MinStack));
-    if (S == NULL) return NULL;
+    if (S == NULL) return 0;
     S->array = malloc(sizeof(int)*maxSize);
-    if (S->array == NULL) return NULL;
+    if (S->array == NULL) return 0;
     S->topofstack = EMPTYTOS;
     S->capacity = maxSize;
     return S;
 }
 
 void minStackPush(MinStack* obj, int x) {
-    if (obj->topofstack == obj->capacity) return NULL;
+    if (obj->topofstack == obj->capacity) return 0;
     obj->array[++obj->topofstack] = x;
 }
 
-void minStackPop(MinStack* obj){
-    if (obj->topofstack == EMPTYTOS) return NULL;
+void minStackPop(MinStack* obj) {
+    if (obj->topofstack == EMPTYTOS) return 0;
     obj->topofstack--;
 }
 
-int minStackTop(MinStack* obj){
-    if (obj->topofstack != EMPTYTOS)
-        return obj->array[obj->topofstack];
+int minStackTop(MinStack* obj) {
+    if (obj->topofstack != EMPTYTOS) return obj->array[obj->topofstack];
     return 0;
 }
 
@@ -40,12 +38,10 @@ int minStackGetMin(MinStack* obj) {
             if ( obj->array[i] < min) min = obj->array[i];
         }
         return min;
-    } else {
-        return NULL;
     }
-
+    return 0;
 }
 
-void minStackFree(MinStack* obj){
+void minStackFree(MinStack* obj) {
     if (obj) free(obj);
 }
