@@ -8,21 +8,21 @@ typedef struct {
 #define EMPTYTOS (-1)
 MinStack* minStackCreate(int maxSize) {
     MinStack *S = malloc(sizeof(MinStack));
-    if (S == NULL) return 0;
+    if (S == NULL) return NULL;
     S->array = malloc(sizeof(int)*maxSize);
-    if (S->array == NULL) return 0;
+    if (S->array == NULL) return NULL;
     S->topofstack = EMPTYTOS;
     S->capacity = maxSize;
     return S;
 }
 
 void minStackPush(MinStack* obj, int x) {
-    if (obj->topofstack == obj->capacity) return 0;
+    if (obj->topofstack == obj->capacity);
     obj->array[++obj->topofstack] = x;
 }
 
 void minStackPop(MinStack* obj) {
-    if (obj->topofstack == EMPTYTOS) return 0;
+    if (obj->topofstack == EMPTYTOS);
     obj->topofstack--;
 }
 
