@@ -1,5 +1,5 @@
 bool isValid(char* s) {
-    if (s == "") return false;
+    if (s == NULL) return false;
     int i=0, j=0;
     char ch[10000];
     if (s[0] == ']' || s[0] =='}' || s[0] == ')') return false;
@@ -48,9 +48,5 @@ bool isValid(char* s) {
         i++;
         j++;
     }
-    if (j == 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return j == 0 ? true : false;
 }
