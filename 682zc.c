@@ -6,6 +6,7 @@ int calPoints(char** ops, int opsSize) {
     int num = 0;
     int i = 0;
     Stack *stack_1 = malloc(sizeof(Stack));
+    if (stack_1 == NULL) return 0;
     memset(stack_1->array, 0, opsSize);
     stack_1->pos = 0;
     while (i < opsSize) {
@@ -35,6 +36,7 @@ int calPoints(char** ops, int opsSize) {
     for (i = 1; i < stack_1->pos; i++) {
         stack_1->array[0] += stack_1->array[i];
     }
-    return stack_1->array[0];
+    int p = stack_1->array[0];
     if (stack_1) free (stack_1);
+    return p;
 }

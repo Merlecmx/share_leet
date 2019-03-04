@@ -6,7 +6,9 @@ typedef struct {
 /** Initialize your data structure here. */
 MyQueue* myQueueCreate(int maxSize) {
     MyQueue *queue = (MyQueue *)malloc(sizeof(MyQueue));
+    if (queue == NULL) return NULL;
     queue->arr = (int *)malloc(sizeof(int) * maxSize);
+    if (queue->arr == NULL) return NULL;
     queue->top = -1;
     return queue;
 }
@@ -41,7 +43,7 @@ int myQueuePeek(MyQueue* obj) {
 
 /** Returns whether the queue is empty. */
 bool myQueueEmpty(MyQueue* obj) {
-    return obj->top == -1 ? 1 : 0;
+    return obj->top == -1;
 }
 
 void myQueueFree(MyQueue* obj) {

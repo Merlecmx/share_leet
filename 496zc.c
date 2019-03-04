@@ -1,5 +1,6 @@
 int* nextGreaterElement(int* findNums, int findNumsSize, int* nums, int numsSize, int* returnSize) {
     int* a = (int*)malloc(sizeof(int) * findNumsSize);
+    if (a == NULL) return NULL;
     memset(a,-1,findNumsSize * sizeof(int));
     *returnSize = findNumsSize;
     for (int i = 0; i < findNumsSize; i++) {
