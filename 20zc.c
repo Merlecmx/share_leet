@@ -48,5 +48,5 @@ bool isValid(char* s) {
         i++;
         j++;
     }
-    return j == 0 ? true : false;
+    return j == 0;
 }

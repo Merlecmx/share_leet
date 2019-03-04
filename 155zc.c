@@ -17,12 +17,12 @@ MinStack* minStackCreate(int maxSize) {
 }
 
 void minStackPush(MinStack* obj, int x) {
-    if (obj->topofstack == obj->capacity);
+    if (obj->topofstack == obj->capacity) return;
     obj->array[++obj->topofstack] = x;
 }
 
 void minStackPop(MinStack* obj) {
-    if (obj->topofstack == EMPTYTOS);
+    if (obj->topofstack == EMPTYTOS) return;
     obj->topofstack--;
 }
 
