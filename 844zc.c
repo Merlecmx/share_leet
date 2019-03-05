@@ -18,7 +18,7 @@ bool backspaceCompare(char* S, char* T) {
     char *arry_t = (char *)malloc(201*sizeof(char));
     int count_s = stack(S,arry_s);
     int count_t = stack(T,arry_t);
-    if (count_s != count_t || strncmp(arry_s, arry_t, count_s != 0)) {
+    if (count_s != count_t || strncmp(arry_s, arry_t, count_s) != 0)) {
         free(arry_s);
         free(arry_t);
         return false;
