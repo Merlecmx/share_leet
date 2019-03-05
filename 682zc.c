@@ -7,7 +7,6 @@ int calPoints(char** ops, int opsSize) {
     int i = 0;
     Stack *stack_1 = malloc(sizeof(Stack));
     if (stack_1 == NULL) return 0;
-    memset(stack_1->array, 0, opsSize);
     stack_1->pos = 0;
     while (i < opsSize) {
         switch (*(ops[i])) {
