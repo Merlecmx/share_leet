@@ -5,7 +5,7 @@ struct TreeNode* trimBST(struct TreeNode* root, int L, int R) {
     } else if (root->val < L) {
         return trimBST(root->right, L, R);
     }
-    root->left = trimBST(root->left,L,R);
-    root->right = trimBST(root->right, L,R);
+    root->left = trimBST(root->left, L, R);
+    root->right = trimBST(root->right, L, R);
     return root;
 }
