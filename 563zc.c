@@ -8,6 +8,6 @@ int title(struct TreeNode* root) {
     if (!root) return 0;
     int left = title(root->left);
     int right = title(root->right);
-    sum = sum + abs(left - right);
+    sum += abs(left - right);
     return left + right + root->val;
 }

@@ -5,5 +5,9 @@ bool isBalanced(struct TreeNode* root) {
 }
 int countFloor(struct TreeNode* root) {
     if (root == NULL) return 0;
-    return 1 + fmax(countFloor(root->left), countFloor(root->right));
+    return 1 + max(countFloor(root->left), countFloor(root->right));
+}
+int max(int m, int n) {
+    if (m > n) return m;
+    return n;
 }
