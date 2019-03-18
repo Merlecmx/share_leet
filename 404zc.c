@@ -1,6 +1,5 @@
 int sumOfLeftLeaves(struct TreeNode* root) {
-    int sum = 0;
-    return findsum(root, sum);
+    return findsum(root, 0);
 }
 int findsum(struct TreeNode* root, int sum) {
     if (root != NULL) {

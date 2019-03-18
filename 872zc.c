@@ -12,11 +12,11 @@ bool leafSimilar(struct TreeNode* root1, struct TreeNode* root2) {
     }
     return true;
 }
+
 void search(struct TreeNode* root, int* leaves, int* num) {
     if (!root) return;
     if (!root->left && !root->right) {
-        leaves[*num] = root->val;
-        *num += 1;
+        leaves[(*num)++] = root->val;
     }
     search(root->left, leaves, num);
     search(root->right, leaves, num);
