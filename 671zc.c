@@ -1,6 +1,6 @@
 int findSecondMinimumValue(struct TreeNode* root) {
     if (!root) return -1;
-    int min1 = root->val,min2 = root->val;
+    int min1 = root->val, min2 = root->val;
     search(root, &min1, &min2);
     if (min1 < min2) return min2;
     return -1;

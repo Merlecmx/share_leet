@@ -4,11 +4,7 @@ bool isCousins(struct TreeNode* root, int x, int y) {
     struct TreeNode *fatherx, *fathery;
     dx = depth(root, x, &fatherx);
     dy = depth(root, y, &fathery);
-    if (dx == dy && fatherx != fathery) {
-        return 1;
-    } else {
-        return 0;
-    }
+    return (dx == dy && fatherx != fathery);
 }
 int depth(struct TreeNode* root, int x, struct TreeNode** father) {
     if (!root) {

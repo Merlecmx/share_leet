@@ -1,9 +1,9 @@
 void path(struct TreeNode* root, int n, int *p);
 void onetree(struct TreeNode* root, int n, int *p);
 int pathSum(struct TreeNode* root, int sum) {
-    int *s[] = {0};
-    path(root, sum, s);
-    return *s;
+    int s = 0;
+    path(root, sum, &s);
+    return s;
 }
 
 void path(struct TreeNode* root, int n, int *p) {
