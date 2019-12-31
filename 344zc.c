@@ -1,11 +1,13 @@
+void swap(char* a, char* b);
 void reverseString(char* s, int sSize) {
     int i = 0, j = sSize - 1;
-    char temp = 0;
-    for(i = 0; i < j; i++) {
-        temp = s[i];
-        s[i] = s[j];
-        s[j] = temp;
-        j--;
+    for(i = 0; i < j; i++, j--) {
+        swap(&s[i], &s[j]);
     }
-    return s;
+}
+void swap(char* a, char* b) {
+    char temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
 }
