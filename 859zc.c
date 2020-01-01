@@ -2,13 +2,13 @@ bool buddyStrings(char * A, char * B) {
     int lenA = strlen(A), lenB = strlen(B);
     int count = 0;
     if(lenA != lenB)
-        return 0;
+        return false;
+    int ar[26] = {0};
     if(strcmp(A,B) == 0) {
-        for(int i=0; i<lenA-1; i++) {
-            for(int j=i+1; j<lenA; j++) {
-                if(A[i] == B[j])
-                    return 1;
-            }
+        for(int i=0; i<lenA; i++) {
+            ar[A[i] - 'a']++;
+            if(ar[A[i] - 'a'] == 2)
+                return true;
         }
     }
     int sum = 0;
@@ -23,8 +23,8 @@ bool buddyStrings(char * A, char * B) {
         }
     }
     if(sum != 2)
-        return 0;
+        return false;
     if(A[temp1] == B[temp2] && A[temp2] == B[temp1])
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
