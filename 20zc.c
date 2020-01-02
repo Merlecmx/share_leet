@@ -1,11 +1,14 @@
-bool isValid(char* s) {
-    if (s == NULL)
+bool isValid(char *s) {
+    if (s == NULL) {
         return false;
-    int i=0, j=0;
+    }
+    int i = 0;
+    int j = 0;
     char ch[10000];
-    if (s[0] == ']' || s[0] =='}' || s[0] == ')')
+    if (s[0] == ']' || s[0] =='}' || s[0] == ')') {
         return false;
-    while(s[i] != '\0') {
+    }
+    while (s[i] != '\0') {
         switch (s[i]) {
         case '{' : {
             ch[j] = '{';
@@ -20,27 +23,29 @@ bool isValid(char* s) {
             break;
         }
         case ']' : {
-            if (j == 0)
+            if (j == 0) {
                 return false;
-            if (ch[j-1] == '[')
+            } else if (ch[j-1] == '[') {
                 j = j-2;
-            else
+            } else {
                 return false;
+            }
             break;
         }
         case '}' : {
-            if (j == 0)
+            if (j == 0) {
                 return false;
-            if (ch[j-1] == '{')
+            } else if (ch[j-1] == '{') {
                 j = j-2;
-            else
+            } else {
                 return false;
+            }
             break;
         }
         case ')' : {
-            if (j == 0)
+            if (j == 0) {
                 return false;
-            if (ch[j-1] == '(') {
+            } else if (ch[j-1] == '(') {
                 j = j-2;
             } else {
                 return false;

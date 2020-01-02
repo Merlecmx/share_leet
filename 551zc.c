@@ -1,15 +1,18 @@
-bool checkRecord(char * s) {
+bool checkRecord(char *s) {
     char len = strlen(s);
-    int a = 0, l = 0;
-    while(*s != '\0') {
-        if(*s == 'A')
+    int a = 0;
+    int l = 0;
+    while (*s != '\0') {
+        if (*s == 'A') {
             a++;
-        if(*s == 'L')
+        } else if (*s == 'L') {
             l++;
-        else
+        } else {
             l = 0;
-        if(a > 1 || l > 2)
+        }
+        if(a > 1 || l > 2) {
             return false;
+        }
         s++;
     }
     return true;
