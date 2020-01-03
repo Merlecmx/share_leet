@@ -1,39 +1,28 @@
-int sum(char *p);
-void save(char *v, char *e, int a);
-int sum(char *p) {
-    int len = strlen(p);
+void save(char *v, char *p, int *num) {
     int i = 0;
     int count = 0;
-    while (p[i] != '\0') {
-        if ((p[i] <'0' || p[i] > '9') && (p[i] < 'a' || p[i] > 'z') && (p[i] < 'A' || p[i] > 'Z')) {//统计无效字符数
+    int tmp = 0;
+    for (i = 0; p[i]; i++) {
+        if ((p[i] >= '0' && p[i] <= '9') || (p[i] >= 'a' && p[i] <= 'z')) {
+            v[tmp] = p[i];
+            tmp++;
+            count++;
+        } else if (p[i] >= 'A' && p[i] <= 'Z') {
+            v[tmp] = p[i] - 'A' + 'a';
+            tmp++;
             count++;
         }
-        i++;
-    }
-    return len - count;
-}
-void save(char *v, char *e, int a) {
-    int tmp = 0;
-    int i = 0;
-    while (e[i] != '\0' && tmp < a) {
-        if ((e[i] >= '0' && e[i] <= '9') || (e[i] >= 'a' && e[i] <= 'z')) {
-            v[tmp] = e[i];
-            tmp++;
-        } else if (e[i] >= 'A' && e[i] <= 'Z') {
-            v[tmp] = e[i] - 'A' + 'a';
-            tmp++;
-        }
-        i++;
+        *num = count;
     }
 }
 bool isPalindrome(char *s) {
     int len = strlen(s);
-    int num = sum(s);//统计有效字符数
-    if (num == 0) return true;
-    char *flag = (char*)malloc(num * sizeof(char));//用于存放有效字符的数组
-    save(flag , s, num);//将s里的有效字符放入flag
-    for (int j = 0; j <= num/2; j++) {
-        if (flag[j] != flag[num - 1 - j]) return false;
+    char *flag = (char*)malloc(len * sizeof(char));//用于存放有效字符的数组
+    save(flag , s, &len);//将s里的有效字符放入flag
+    if (len == 0) return true;
+    for (int j = 0; j <= len/2; j++) {
+        if (flag[j] != flag[len - 1 - j]) return false;
     }
+    free (flag);
     return true;
 }
