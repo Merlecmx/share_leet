@@ -1,12 +1,13 @@
-char * reverseOnlyLetters(char * S) {
-    int i = 0, j = strlen(S) - 1;
+char *reverseOnlyLetters(char *S) {
+    int i = 0;
+    int j = strlen(S) - 1;
     char temp;
-    while(i < j) {
-        if(isalpha(S[i]) == 0) {
+    while (i < j) {
+        if (isalpha(S[i]) == 0) {
             i++;
             continue;
         }
-        if(isalpha(S[j]) == 0) {
+        if (isalpha(S[j]) == 0) {
             j--;
             continue;
         }

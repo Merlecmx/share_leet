@@ -1,14 +1,15 @@
-bool judgeCircle(char * moves) {
-    int count1 = 0, count2 = 0;
+bool judgeCircle(char *moves) {
+    int count1 = 0;
+    int count2 = 0;
     int i = 0;
-    while(*moves != '\0') {
-        if(*moves == 'R')
+    while (*moves != '\0') {
+        if( *moves == 'R')
             count1++;
-        if(*moves == 'L')
+        if (*moves == 'L')
             count1--;
-        if(*moves == 'U')
+        if (*moves == 'U')
             count2++;
-        if(*moves == 'D')
+        if (*moves == 'D')
             count2--;
         moves++;
     }

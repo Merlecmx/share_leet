@@ -6,38 +6,35 @@
 #define D 500
 #define M 1000
 
-int romanToInt(char* s) {
+int romanToInt(char *s) {
     int sum = 0;
-    while(*s) {
-        if(*s == 'I' && (*(s+1) == 'V' || *(s+1) == 'X')) {
-            if(*(s+1) == 'V') {
+    while (*s) {
+        if (*s == 'I' && (*(s + 1) == 'V' || *(s + 1) == 'X')) {
+            if (*(s+1) == 'V') {
                 sum += (V - I);
                 s += 2;
                 continue;
-            }
-            if(*(s+1) == 'X') {
+            } else if (*(s + 1) == 'X') {
                 sum += (X - I);
                 s += 2;
                 continue;
             }
-        } else if(*s == 'X' && (*(s+1) == 'L' || *(s+1) == 'C')) {
-            if(*(s+1) == 'L') {
+        } else if (*s == 'X' && (*(s + 1) == 'L' || *(s + 1) == 'C')) {
+            if (*(s + 1) == 'L') {
                 sum += (L - X);
                 s += 2;
                 continue;
-            }
-            if(*(s+1) == 'C') {
+            } else if (*(s + 1) == 'C') {
                 sum += (C - X);
                 s += 2;
                 continue;
             }
-        } else if(*s == 'C' && (*(s+1) == 'D' || *(s+1) == 'M')) {
-            if(*(s+1) == 'D') {
+        } else if (*s == 'C' && (*(s + 1) == 'D' || *(s + 1) == 'M')) {
+            if (*(s + 1) == 'D') {
                 sum += (D- C);
                 s += 2;
                 continue;
-            }
-            if(*(s+1) == 'M') {
+            } else if (*(s + 1) == 'M') {
                 sum += (M - C);
                 s += 2;
                 continue;
@@ -47,35 +44,29 @@ int romanToInt(char* s) {
                 sum += I;
                 s += 1;
                 continue;
-            }
-            if(*s == 'V') {
+            } else if (*s == 'V') {
                 sum += V;
-                s += 1;
+                s++;
                 continue;
-            }
-            if(*s == 'X') {
+            } else if (*s == 'X') {
                 sum += X;
-                s += 1;
+                s++;
                 continue;
-            }
-            if(*s == 'L') {
+            } else if (*s == 'L') {
                 sum += L;
-                s += 1;
+                s++;
                 continue;
-            }
-            if(*s == 'C') {
+            } else if (*s == 'C') {
                 sum += C;
-                s += 1;
+                s++;
                 continue;
-            }
-            if(*s == 'D') {
+            } else if (*s == 'D') {
                 sum += D;
-                s += 1;
+                s++;
                 continue;
-            }
-            if(*s == 'M') {
+            } else if (*s == 'M') {
                 sum += M;
-                s += 1;
+                s++;
                 continue;
             }
         }
