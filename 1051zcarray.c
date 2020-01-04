@@ -1,10 +1,13 @@
-void BubbleSort(int* h, int size){
+void Swap(int* a, int* b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+void BubbleSort(int* h, int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
             if (h[j] > h[j + 1]) {
-                int tmp = h[j];
-                h[j] = h[j + 1];
-                h[j + 1] = tmp;
+                Swap(h + j, h + (j + 1));
             }
         }
     }
