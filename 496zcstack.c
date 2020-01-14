@@ -2,14 +2,14 @@
  * Return an array of size *returnSize.
  * Note: The returned array must be malloced, assume caller calls free().
  */
+typedef struct stack {
+    int arr[1000];
+    int top;
+} mystack;
 int* nextGreaterElement(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) {
     int* hashmap = (int*)malloc(sizeof(int) * 10001);
     int* res = (int*)malloc(sizeof(int) * nums1Size);//存放最后结果
-    typedef struct stack {
-        int arr[nums2Size];
-        int top;
-    } Stack;
-    Stack* stack = malloc(sizeof(Stack));
+    mystack* stack = (mystack*)malloc(sizeof(mystack));
     stack->top = -1;
     int i = 0;
     for (i; i < nums2Size; i++) {

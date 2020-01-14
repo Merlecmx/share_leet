@@ -1,14 +1,13 @@
+typedef struct stack {
+    int pos;
+    int arr[10000];
+} mystack;
 char * removeOuterParentheses(char* S) {
     int len = strlen(S);
     int i = 0, k = 0;
     if (len == 0) return false;
-    typedef struct stack {
-        int pos;
-        int arr[len];
-    } Stack;
-    Stack* stack = malloc(sizeof(Stack));
-    if (stack == NULL) return false;
-    char* res = malloc(sizeof(char) * (len + 1));//预留\0的位置
+    mystack* stack = (mystack*)malloc(sizeof(mystack) * 1);
+    char* res = (char*)malloc(sizeof(char) * (len + 1));//预留\0的位置
     stack->pos = -1;
     for (i; i < len; i++) {
         if (S[i] == ')') {
