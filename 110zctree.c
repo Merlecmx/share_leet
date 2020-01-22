@@ -7,13 +7,14 @@
  * };
  */
 int max(int m, int n) {
-    if (m > n) return m;
-    return n;
+    return m > n ? m : n;
 }
+
 int countFloor(struct TreeNode* root) {//计算子树高度
     if (root == NULL) return 0;
     return 1 + max(countFloor(root->left), countFloor(root->right));
 }
+
 bool isBalanced(struct TreeNode* root) {
     if (root == NULL) return true;
     if (abs(countFloor(root->left) - countFloor(root->right)) > 1) return false;
