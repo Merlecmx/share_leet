@@ -10,7 +10,7 @@
  * Return an array of size *returnSize.
  * Note: The returned array must be malloced, assume caller calls free().
  */
-    void dfs(struct TreeNode* root, char** bin_tree_paths, int* path, int* returnSize, int depth) {
+void dfs(struct TreeNode* root, char** bin_tree_paths, int* path, int* returnSize, int depth) {
     int i = 0;
     path[depth++] = root->val;
     if (root->left == NULL && root->right == NULL) {
@@ -26,8 +26,8 @@
     if (root->left != NULL) {
         dfs(root->left, bin_tree_paths, path, returnSize, depth);
     }
-     if (root->right != NULL) {
-         dfs(root->right, bin_tree_paths,path, returnSize, depth);
+    if (root->right != NULL) {
+        dfs(root->right, bin_tree_paths,path, returnSize, depth);
     }
     return;
 }
