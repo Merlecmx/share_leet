@@ -23,6 +23,7 @@ int InorderTraversal(struct TreeNode* root, int** temp, int min) {
     }
     return min;
 }
+
 int minDiffInBST(struct TreeNode* root) {
     int *temp = NULL;
     if (root == NULL) return 0;

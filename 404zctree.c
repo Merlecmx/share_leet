@@ -16,6 +16,7 @@ int findsum(struct TreeNode* root, int sum) {
     }
     return sum;
 }
+
 int sumOfLeftLeaves(struct TreeNode* root) {
     return findsum(root, 0);
 }

@@ -31,6 +31,7 @@ void dfs(struct TreeNode* root, char** bin_tree_paths, int* path, int* returnSiz
     }
     return;
 }
+
 char** binaryTreePaths(struct TreeNode* root, int* returnSize) {
     int path[100] = {0}, depth = 0;
     char** bin_tree_paths = (char**)malloc(sizeof(char*) * 100);

@@ -16,6 +16,7 @@ int InOrderTraversal(struct TreeNode* root, int* arr, int n) {
     }
     return n;
 }
+
 int minDiffInBST(struct TreeNode* root) {
     int arr[101];
     int index = InOrderTraversal(root, arr, 0);
