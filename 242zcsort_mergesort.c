@@ -37,12 +37,7 @@ bool isAnagram(char* s, char* t){
     char* T = (char*)malloc(sizeof(char) * len_t);
     MergeSort(s, S, 0, len_s - 1);
     MergeSort(t, T, 0, len_t - 1);
-    for (int i = 0; i < len_s; i++) {
-        if (s[i] != t[i]) {
-            return false;
-        }
-    }
     free(S);
     free(T);
-    return true;
+    return strcmp(s, t) == 0;
 }

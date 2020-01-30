@@ -18,16 +18,16 @@ int Partion (int* nums, int low, int high) {
 }
 void QSort(int* nums, int low, int high) {
     if (low < high) {
-        int flag = Partion(nums, low, high);
-        QSort(nums, low, flag - 1);
-        QSort(nums, flag + 1, high);
+        int index = Partion(nums, low, high);
+        QSort(nums, low, index - 1);
+        QSort(nums, index + 1, high);
     }
 }
 int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize){
     QSort(nums1, 0, nums1Size - 1);
     QSort(nums2, 0, nums2Size - 1);
     int i = 0, j = 0, index = 0;
-    while(i < nums1Size && j < nums2Size) {
+    while (i < nums1Size && j < nums2Size) {
         if (nums1[i] < nums2[j]) {
             i++;
         } else if (nums1[i] > nums2[j]) {
