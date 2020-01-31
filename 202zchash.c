@@ -11,11 +11,11 @@ int getsum(int n) {
 }
 bool isHappy(int n) {
     n = getsum(n);
-    if(n == 1) return true;
+    if (n == 1) return true;
     while (ans[n] != 1) {
         ans[n] = 1;
         n = getsum(n);
-        if(n == 1) return true;
+        if (n == 1) return true;
     }
     return false;
 }

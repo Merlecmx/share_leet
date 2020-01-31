@@ -6,7 +6,7 @@
 int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize){
     int *res = (int*)malloc(sizeof(int));
     int hash[1000] = {0};
-    for (int i = 0; i < nums1Size; i++){
+    for (int i = 0; i < nums1Size; i++) {
         hash[nums1[i]] = 1;
     }
     int length = 0;
