@@ -3,7 +3,7 @@ typedef struct hash {
     int index;
 } myhash;
 
-int cmp(const void* a, const void* b) {
+int cmp(const void* a, const void* b){
     return (((myhash*)a)->data < ((myhash*)b)->data) ? -1 : 1;
 }
 

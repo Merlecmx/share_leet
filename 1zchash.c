@@ -2,13 +2,13 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 //map 的简单实现
-struct hash_data{
+struct hash_data {
     int key;
     int data;
     struct hash_data* next;
 };
 
- struct hash_table{
+ struct hash_table {
     struct hash_data** head; //数组
     int hash_width;
 };
