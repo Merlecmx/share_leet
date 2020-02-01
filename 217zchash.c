@@ -1,4 +1,4 @@
-int MaxValue(int* nums, int numsSize){
+int MaxValue(int* nums, int numsSize) {
     int max = nums[0];
     for (int i = 1; i < numsSize; i++) {
         if (max < nums[i]) {
@@ -18,7 +18,7 @@ int MinValue(int* nums, int numsSize) {
     return min;
 }
 
-bool containsDuplicate(int* nums, int numsSize){
+bool containsDuplicate(int* nums, int numsSize) {
     if (nums == NULL || numsSize == 0) return false;
     int max = MaxValue(nums, numsSize);
     int min = MinValue(nums, numsSize);
