@@ -71,7 +71,7 @@ struct hash_data* hash_find(struct hash_table table, int key){
 int* twoSum(int* nums, int numsSize, int target, int* returnSize){
     int* res = (int*)malloc(sizeof(int) * 2);
     struct hash_table table;
-    int flag = hash_init(&table, 100);
+    int flag = hash_init(&table, 10000);
     if (flag != 0) return NULL;
     for (int i = 0; i < numsSize; i++) {
     int value = target - nums[i];
