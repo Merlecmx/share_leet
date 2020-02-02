@@ -6,7 +6,7 @@
  *     struct TreeNode *right;
  * };
  */
-int min (int a, int b) {
+int min(int a, int b) {
     return a > b ? b : a;
 }
 
