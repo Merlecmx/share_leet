@@ -1,19 +1,24 @@
-typedef int  NumArray;
+typedef int NumArray;
 
 NumArray* numArrayCreate(int* nums, int numsSize) {
-    for (int i = 1; i < numsSize; ++i) {
-        nums[i] += nums[i - 1];
+    NumArray* obj = (NumArray*)calloc(sizeof(NumArray), numsSize);
+    for (int i = 0; i < numsSize; ++i) {
+        obj[i] = nums[i];
     }
-    return nums;
+    return obj;
 }
 
 int numArraySumRange(NumArray* obj, int i, int j) {
-    if (i == 0) return obj[j];
-    return obj[j] - obj[i - 1];
+    int sum = 0;
+    for (i; i <= j; ++i) {
+        sum += obj[i];
+    }
+    return sum;
 }
 
 void numArrayFree(NumArray* obj) {
-    return;
+    if (obj);
+    free(obj);
 }
 
 /**
