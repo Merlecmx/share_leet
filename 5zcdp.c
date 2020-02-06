@@ -1,8 +1,9 @@
 char* longestPalindrome(char * s){
     int len = strlen(s);
     int low = 0, high = 0;
-    int dp[1000][1000] = {0};
+    int** dp = (int**)malloc(sizeof(int*) * 1000);
     for (int i = 0; i < len; ++i) {
+        dp[i] = malloc(sizeof(int) * 1000);
         dp[i][i] = 1;//单字符是回文串
     }
     for (int r = 1; r < len; ++r) {
@@ -24,5 +25,6 @@ char* longestPalindrome(char * s){
         res[index++] = s[low++];
     }
     res[index] = '\0';
+    free(dp);
     return res;
 }
