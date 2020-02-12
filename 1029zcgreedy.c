@@ -10,8 +10,8 @@ int twoCitySchedCost(int** costs, int costsSize, int* costsColSize){
         sum += costs[i][1];
     }
     qsort(arr, index, sizeof(int), Cmp);
-    int flag = costsSize / 2;
-    for (int i = 0; i < flag; ++i) {
+    int midsize = costsSize / 2;
+    for (int i = 0; i < midsize; ++i) {
         sum += arr[i];
     }
     free(arr);
