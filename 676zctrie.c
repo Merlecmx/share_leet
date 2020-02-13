@@ -12,20 +12,19 @@ MagicDictionary* magicDictionaryCreate() {
 
 /** Build a dictionary through a list of words */
 void magicDictionaryBuildDict(MagicDictionary* obj, char ** dict, int dictSize) {
-   MagicDictionary *temp,*p;
-    for (int i=0;i<dictSize;i++){
+    int index = 0;
+    MagicDictionary* p;
+    for (int i = 0; i < dictSize; ++i) {
         p = obj;
-        for (int j=0;dict[i][j];j++){
-            if (!p->ch[dict[i][j]-'a']){
-                temp = (MagicDictionary*)malloc(sizeof(MagicDictionary));
-                for (int k=0;k<26;k++)
-                    temp->ch[k] = NULL;
-                temp->is_end = false;
-                p->ch[dict[i][j]-'a'] = temp;
+        int len = strlen(dict[i]);
+        for (int j = 0; j < len; ++j) {
+            index = dict[i][j] - 'a';
+            if (p->ch[index] == NULL) {
+                p->ch[index] = magicDictionaryCreate();
             }
-            p = p->ch[dict[i][j]-'a'];
+            p = p->ch[index];
         }
-        p->is_end = true;
+        p->is_end = true;;
     }
 }
 
