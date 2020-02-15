@@ -57,7 +57,7 @@ bool trieStartsWith(Trie* obj, char* prefix) {
 
 void trieFree(Trie* obj) {
     for (int i = 0; i < 26; ++i) {
-        if (obj->ch[i]) free(obj->ch[i]);
+        if (obj->ch[i]) trieFree(obj->ch[i]);
     }
     free(obj);
 }

@@ -54,5 +54,6 @@ char * replaceWords(char** dict, int dictSize, char* sentence){
         res[res_index++] = sentence[i];
     }
     res[res_index++] = '\0';
+    free(pool);
     return res;
 }

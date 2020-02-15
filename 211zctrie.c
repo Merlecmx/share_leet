@@ -52,7 +52,7 @@ bool wordDictionarySearch(WordDictionary* obj, char* word) {
 
 void wordDictionaryFree(WordDictionary* obj) {
     for (int i = 0; i < 26; ++i) {
-        if (obj->ch[i]) free(obj->ch[i]);
+        if (obj->ch[i]) wordDictionaryFree(obj->ch[i]);
     }
     free(obj);
 }
