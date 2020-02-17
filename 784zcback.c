@@ -35,8 +35,7 @@ char** letterCasePermutation(char* S, int* returnSize){
     int len = strlen(S);
     char** res = (char**)malloc(sizeof(char) * 65535);
     int res_index = 1;
-    res[0] = (char*)malloc(sizeof(char) * (len + 1));
-    res[0][0] = '\0';
+    res[0] = (char*)malloc(sizeof(char*) * (len + 1));
     rec(S, len, len - 1, res, &res_index);
     *returnSize = res_index;
     return res;
