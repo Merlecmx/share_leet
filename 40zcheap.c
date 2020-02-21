@@ -1,7 +1,7 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-#define leftchildIdx(i) (2 * (i) + 1)
+#define lcIdx(i) (2 * (i) + 1)
 void Swap(int* a, int* b){
     int temp = *a;
     *a = *b;
@@ -11,9 +11,9 @@ void Swap(int* a, int* b){
 void HeapSort(int* arr, int i, int n){
     int child;
     int temp;
-    for (temp = arr[i]; leftchildIdx(i) < n; i = child) {
-        child = leftchildIdx(i);
-        if (child != n - 1 && arr[child + 1] > arr[child]) {
+    for (temp = arr[i]; lcIdx(i) < n; i = child) {
+        child = lcIdx(i);
+        if (child < n - 1 && arr[child + 1] > arr[child]) {
             child++;
         }
         if (temp < arr[child]) {

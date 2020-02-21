@@ -1,24 +1,29 @@
+void Heap(int* heap, int i, int index, int heapsize);
+
+void Swap(int* a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 void BuildHeap(int* heap, int heapsize){
     int i = 0, temp = 0;
     for (i = (heapsize/2) - 1; i >= 0; --i) {
-        int leftchildIdx = (2 * i) + 1;
-        int rightchildIdx = (2 * i) + 2;
-        if (leftchildIdx < heapsize && heap[i] > heap[leftchildIdx]) {//根的值大于左子树时交换
-            temp = heap[i];
-            heap[i] = heap[leftchildIdx];
-            heap[leftchildIdx] = temp;
-            if ((2 * leftchildIdx + 1 < heapsize && heap[leftchildIdx] > heap[2 * leftchildIdx + 1]) || (2 * leftchildIdx + 2 < heapsize && heap[leftchildIdx] > heap[2 * leftchildIdx + 2])) {//交换后，判断左子树是否符合小顶堆性质
-                BuildHeap(heap, heapsize);
-            }
+        int lcIdx = (2 * i) + 1;
+        int rcIdx = (2 * i) + 2;
+        if (lcIdx < heapsize && heap[i] > heap[lcIdx]) {//根的值大于左子树时交换
+            Heap(heap, i, lcIdx, heapsize);
         }
-        if (rightchildIdx < heapsize && heap[i] > heap[rightchildIdx]) {//根的值大于右子树
-            temp = heap[i];
-            heap[i] = heap[rightchildIdx];
-            heap[rightchildIdx] = temp;
-            if ((2 * rightchildIdx + 1 < heapsize && heap[rightchildIdx] > heap[2 * rightchildIdx + 1]) || (2 * rightchildIdx + 2 < heapsize && heap[rightchildIdx] > heap[2 * rightchildIdx + 2])) {//交换后判断右子树是否符合小顶堆
-                BuildHeap(heap, heapsize);
-            }
+        if (rcIdx < heapsize && heap[i] > heap[rcIdx]) {//根的值大于右子树
+            Heap(heap, i, rcIdx, heapsize);
         }
+    }
+}
+
+void Heap(int* heap, int i, int index, int heapsize){
+    Swap(heap + i, heap + index);
+    if ((2 * index + 1 < heapsize && heap[index] > heap[2 * index + 1]) || (2 * index + 2 < heapsize && heap[index] > heap[2 * index + 2])) {//交换后，判断子树是否符合小顶堆性质
+        BuildHeap(heap, heapsize);
     }
 }
 
