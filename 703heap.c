@@ -21,31 +21,22 @@ void InHeap(int* size, int* heaparr, int val) {
     }
 }
 
-void OutHeap(int* size, int* heaparr){
-    int ptrTemp;
-    heaparr[0] = heaparr[(*size) - 1];
-    ptrTemp = 0;
-    while (2 * ptrTemp + 1 < (*size) - 1) {
-        if (2 * ptrTemp + 2 < (*size) - 1) {
-if (heaparr[2 * ptrTemp + 2] > heaparr[ptrTemp] && heaparr[2 * ptrTemp + 1] > heaparr[ptrTemp]) {
-                break;
-            } else if (heaparr[2 * ptrTemp + 1] < heaparr[2 * ptrTemp + 2]) {
-                Swap(&heaparr[2 * ptrTemp + 1], &heaparr[ptrTemp]);
-                ptrTemp = 2 * ptrTemp + 1;
-            } else {
-                Swap(&heaparr[2 * ptrTemp + 2], &heaparr[ptrTemp]);
-                ptrTemp = 2 * ptrTemp + 2;
-            }
+void DownHeap(int* heap, int p, int n){
+    int leftchildIdx = (p * 2) + 1;
+    int temp = heap[p];
+    while (leftchildIdx < n) {
+        if (leftchildIdx < n - 1 && heap[leftchildIdx] > heap[leftchildIdx + 1]) {
+            leftchildIdx++;
+        }
+        if (temp > heap[leftchildIdx]) {
+            heap[p] = heap[leftchildIdx];
+            p = leftchildIdx;
+            leftchildIdx = (leftchildIdx * 2) + 1;
         } else {
-            if (heaparr[2 * ptrTemp + 1] < heaparr[ptrTemp]) {
-                Swap(&heaparr[2 * ptrTemp + 1], &heaparr[ptrTemp]);
-                ptrTemp = 2 * ptrTemp + 1;
-            } else {
-                break;
-            }
+            break;
         }
     }
-    (*size)--;
+    heap[p] = temp;
 }
 
 KthLargest* kthLargestCreate(int k, int* nums, int numsSize) {
@@ -58,8 +49,8 @@ KthLargest* kthLargestCreate(int k, int* nums, int numsSize) {
             InHeap(&(p->size), p->heaparr, nums[i]);
         } else {
             if (nums[i] > p->heaparr[0]) {//插入值大于堆顶值
-                OutHeap(&(p->size), p->heaparr);
-                InHeap(&(p->size), p->heaparr, nums[i]);
+                Swap(nums + i, p->heaparr);
+                DownHeap(p->heaparr, 0, p->maxsize);
             }
         }
     }
@@ -71,8 +62,8 @@ int kthLargestAdd(KthLargest* obj, int val) {
         InHeap(&(obj->size), obj->heaparr, val);
     } else {
         if (val > obj->heaparr[0]) {
-            OutHeap(&(obj->size), obj->heaparr);
-            InHeap(&(obj->size), obj->heaparr, val);
+            Swap(&val, &(obj->heaparr[0]));
+            DownHeap(obj->heaparr, 0, obj->size);
         }
     }
     return obj->heaparr[0];
